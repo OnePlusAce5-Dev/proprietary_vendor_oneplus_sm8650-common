@@ -13,6 +13,7 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/sm8650-common/proprietary/odm/etc/dolby/display/dolby_vision.cfg:$(TARGET_COPY_OUT_ODM)/etc/dolby/display/dolby_vision.cfg \
     vendor/oneplus/sm8650-common/proprietary/odm/etc/dolby/dolby_vision.cfg:$(TARGET_COPY_OUT_ODM)/etc/dolby/dolby_vision.cfg \
     vendor/oneplus/sm8650-common/proprietary/odm/etc/hdr3dlut_pq_qcom_grid_out_rgb.cube:$(TARGET_COPY_OUT_ODM)/etc/hdr3dlut_pq_qcom_grid_out_rgb.cube \
+    vendor/oneplus/sm8650-common/proprietary/odm/etc/horae/horae_target.conf:$(TARGET_COPY_OUT_ODM)/etc/horae/horae_target.conf \
     vendor/oneplus/sm8650-common/proprietary/odm/etc/init/android.hardware.contexthub-service.qmi.rc:$(TARGET_COPY_OUT_ODM)/etc/init/android.hardware.contexthub-service.qmi.rc \
     vendor/oneplus/sm8650-common/proprietary/odm/etc/init/android.hardware.secure_element-service.qti.rc:$(TARGET_COPY_OUT_ODM)/etc/init/android.hardware.secure_element-service.qti.rc \
     vendor/oneplus/sm8650-common/proprietary/odm/etc/init/commcenterd.rc:$(TARGET_COPY_OUT_ODM)/etc/init/commcenterd.rc \
@@ -61,7 +62,12 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/sm8650-common/proprietary/product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/com.android.hotwordenrollment.common.util.xml \
     vendor/oneplus/sm8650-common/proprietary/system/etc/sysconfig/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
     vendor/oneplus/sm8650-common/proprietary/system_ext/etc/dpm/dpm.conf:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/dpm/dpm.conf \
+    vendor/oneplus/sm8650-common/proprietary/system_ext/etc/horae/horae.conf:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/horae/horae.conf \
+    vendor/oneplus/sm8650-common/proprietary/system_ext/etc/horae/horae_SM7675.conf:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/horae/horae_SM7675.conf \
+    vendor/oneplus/sm8650-common/proprietary/system_ext/etc/horae/horae_SM8650.conf:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/horae/horae_SM8650.conf \
+    vendor/oneplus/sm8650-common/proprietary/system_ext/etc/horae/horae_SM8650_CAIHONG.conf:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/horae/horae_SM8650_CAIHONG.conf \
     vendor/oneplus/sm8650-common/proprietary/system_ext/etc/init/dpmd.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/dpmd.rc \
+    vendor/oneplus/sm8650-common/proprietary/system_ext/etc/init/horae.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/horae.rc \
     vendor/oneplus/sm8650-common/proprietary/system_ext/etc/init/tcmd.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/tcmd.rc \
     vendor/oneplus/sm8650-common/proprietary/system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc \
     vendor/oneplus/sm8650-common/proprietary/system_ext/etc/init/vendor.qti.qccsyshal_aidl-service.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/vendor.qti.qccsyshal_aidl-service.rc \
@@ -628,6 +634,9 @@ PRODUCT_COPY_FILES += \
     vendor/oneplus/sm8650-common/proprietary/vendor/lib64/MLPD_5.pickle:$(TARGET_COPY_OUT_VENDOR)/lib64/MLPD_5.pickle
 
 PRODUCT_PACKAGES += \
+    libostatslog \
+    vendor.oplus.hardware.displaypanelfeature-V1-ndk \
+    vendor.oplus.hardware.performance-V1-ndk \
     vendor.qti.diaghal-V1-ndk \
     btaudio_offload_if \
     com.qualcomm.qti.dpm.api@1.0_vendor \
@@ -1405,6 +1414,8 @@ PRODUCT_PACKAGES += \
     libwfduibcsinkinterface \
     libwfduibcsrc \
     libwfduibcsrcinterface \
+    vendor.oplus.hardware.charger-V1-ndk \
+    vendor.oplus.hardware.displaypanelfeature@1.0 \
     vendor.qti.ImsRtpService-V1-ndk \
     vendor.qti.diaghal@1.0 \
     vendor.qti.hardware.dpmaidlservice-V1-ndk \
@@ -1505,9 +1516,9 @@ PRODUCT_PACKAGES += \
     vendor.oplus.hardware.communicationcenter-V1-ndk \
     vendor.oplus.hardware.communicationcenter-V2-ndk \
     vendor.oplus.hardware.displaycolorfeature-V1-ndk \
-    vendor.oplus.hardware.displaypanelfeature-V1-ndk \
+    vendor.oplus.hardware.displaypanelfeature-V1-ndk_odm \
     vendor.oplus.hardware.olc2-V2-ndk \
-    vendor.oplus.hardware.performance-V1-ndk \
+    vendor.oplus.hardware.performance-V1-ndk_odm \
     vendor.oplus.hardware.performance-V2-ndk \
     vendor.oplus.hardware.performance-V3-ndk \
     vendor.oplus.hardware.stability.oplus_project-V2-ndk \
@@ -1769,6 +1780,7 @@ PRODUCT_PACKAGES += \
     xtra-daemon \
     xtwifi-client \
     dpmd \
+    horae \
     qccsyshal@1.2-service \
     qccsyshal_aidl-service \
     tcmd \
