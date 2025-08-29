@@ -24344,11 +24344,6 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libdolbydecoderprocessor.so",
             ],
             shared_libs: [
-                "libbase",
-                "libcodec2",
-                "libcodec2_vndk",
-                "android.hardware.media.c2@1.0",
-                "libcodec2_hidl@1.0",
                 "liblog",
                 "libEGL",
                 "libGLESv2",
@@ -24360,6 +24355,8 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libnativewindow",
                 "libdolbyeglcore",
+                "libcodec2_vndk",
+                "libcodec2",
                 "libc++",
                 "libc",
                 "libm",
@@ -29807,6 +29804,35 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
+    name: "qvrdatauploader",
+    owner: "oneplus",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/qvrdatauploader",
+            ],
+            shared_libs: [
+                "libtinyxml2",
+                "liblog",
+                "libqvrservice_client.qti",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
     name: "qvrservicetest",
     owner: "oneplus",
     target: {
@@ -30988,6 +31014,8 @@ cc_prebuilt_binary {
                 "vendor.oplus.hardware.performance-V1-ndk",
                 "vendor.oplus.hardware.osense.client-V1-ndk",
                 "libosenseaidlhalclient",
+                "liboplus-uah-client",
+                "libosensenativeproxy_client",
                 "libolc_vnd",
                 "vendor.oplus.hardware.commondcs-V1-ndk",
                 "vendor.oplus.hardware.touch-V1-ndk",
