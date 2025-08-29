@@ -1747,7 +1747,7 @@ PRODUCT_PACKAGES += \
     shsusrd \
     slim_daemon \
     sscrpcd \
-    ssgqmigd64 \
+    ssgqmigd \
     ssgtzd \
     ssr_diag \
     ssr_setup \
